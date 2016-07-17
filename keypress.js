@@ -74,7 +74,7 @@ function isLegal(row, column) {
 
     // make sure the new space is not an "obstacle"
 
-    if(world[row][column] == 1) {
+    if(world[row][column].terrain == 1) {
         return false;
     }
 

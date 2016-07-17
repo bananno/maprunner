@@ -33,7 +33,9 @@ function createWorld(){
         world[row] = [];
 
         for(var column = 0; column < worldColumns; column++)   {
-            world[row][column] = 0;
+            world[row][column] = {
+                terrain: 0
+            };
         }
     }
 }
@@ -41,7 +43,7 @@ function createWorld(){
 function addWall(rowStart, columnStart, rowSize, columnSize) {
    for(var row = rowStart; row < (rowStart + rowSize); row++) {
         for(var column = columnStart; column < (columnStart + columnSize); column++) {
-            world[row][column] = 1;
+            world[row][column].terrain = 1;
         }
     }
 }

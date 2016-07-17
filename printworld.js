@@ -21,6 +21,6 @@ function printWorld() {
         if(row == youAreHere[1][0] && column == youAreHere[1][1])
             return "player num" + 1;
 
-        return "space num" + world[row][column];
+        return "space num" + world[row][column].terrain;
     }
 }
