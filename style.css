@@ -2,6 +2,11 @@
 table {
     border-collapse: collapse;
 }
+
+#worldGrid {
+    margin: auto;
+}
+
 .world {
     height:4px;
     width:4px;

@@ -1,6 +1,6 @@
 
 function printWorld() {
-    var worldTable = "<table>" + world.map(row_mapper).join("") + "</table>";
+    var worldTable = "<table id='worldGrid'>" + world.map(row_mapper).join("") + "</table>";
 
     worldBox.innerHTML = worldTable;
 
