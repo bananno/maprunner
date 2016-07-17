@@ -1,0 +1,26 @@
+
+table {
+    border-collapse: collapse;
+}
+.world {
+    height:5px;
+    width:5px;
+    /*border:1px solid black;*/
+    text-align: center;
+}
+
+.world.player0 {
+    background-color: red;
+}
+
+.world.player1 {
+    background-color: yellow;
+}
+
+.world.type0 {
+    background-color:green;
+}
+
+.world.type1 {
+    background-color:blue;
+}
