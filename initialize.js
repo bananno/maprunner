@@ -23,7 +23,7 @@ window.onload = function() {
 
     // begin
 
-    printWorld();
+    welcome();
 };
 
 function createWorld(){
@@ -44,4 +44,12 @@ function addWall(rowStart, columnStart, rowSize, columnSize) {
             world[row][column] = 1;
         }
     }
+}
+
+function welcome() {
+    var welcomePage = "<p style='padding-top:200px; text-align:center;'>" +
+        "<input type='button' value='Begin Game' onclick=printWorld()>" +
+        "</p>";
+
+    worldBox.innerHTML = welcomePage;
 }
