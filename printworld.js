@@ -16,11 +16,11 @@ function printWorld() {
     function tile_class(row, column) {
 
         if(row == youAreHere[0][0] && column == youAreHere[0][1])
-            return "player player0";
+            return "player num" + 0;
 
         if(row == youAreHere[1][0] && column == youAreHere[1][1])
-            return "player player1";
+            return "player num" + 1;
 
-        return "type" + world[row][column];
+        return "space num" + world[row][column];
     }
 }

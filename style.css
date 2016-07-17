@@ -13,18 +13,18 @@ table {
     border-color:black;
 }
 
-.world.player0 {
+.world.player.num0 {
     background-color: red;
 }
 
-.world.player1 {
+.world.player.num1 {
     background-color: yellow;
 }
 
-.world.type0 {
+.world.space.num0 {
     background-color:green;
 }
 
-.world.type1 {
+.world.space.num1 {
     background-color:blue;
 }
