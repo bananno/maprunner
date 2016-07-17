@@ -3,8 +3,8 @@ window.onload = function() {
 
     // variables/preferences
 
-    worldRows = 110;
-    worldColumns = 180;
+    worldRows = 80;
+    worldColumns = 150;
     jumpSize = 1;
 
     // initialize

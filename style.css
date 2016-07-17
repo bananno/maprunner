@@ -3,10 +3,14 @@ table {
     border-collapse: collapse;
 }
 .world {
-    height:5px;
-    width:5px;
-    /*border:1px solid black;*/
+    height:4px;
+    width:4px;
+    border:2px solid transparent;
     text-align: center;
+}
+
+.world.player {
+    border-color:black;
 }
 
 .world.player0 {
