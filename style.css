@@ -33,3 +33,7 @@ table {
 .world.space.num1 {
     background-color:blue;
 }
+
+.world.space.obstacle-top {
+    border-top-color: black;
+}

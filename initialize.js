@@ -19,7 +19,7 @@ window.onload = function() {
 
     createWorld();
 
-    addWall(10, 10, 1, 80);
+    addWall(10, 10, 1, 80, "top");
 
     // begin
 
@@ -34,16 +34,24 @@ function createWorld(){
 
         for(var column = 0; column < worldColumns; column++)   {
             world[row][column] = {
-                terrain: 0
+                terrain: 0,
+                obstacle: {
+                    top: false,
+                    bottom: false,
+                    left: false,
+                    right: false
+                }
             };
         }
     }
 }
 
-function addWall(rowStart, columnStart, rowSize, columnSize) {
+function addWall(rowStart, columnStart, rowSize, columnSize, side) {
    for(var row = rowStart; row < (rowStart + rowSize); row++) {
         for(var column = columnStart; column < (columnStart + columnSize); column++) {
             world[row][column].terrain = 1;
+
+            world[row][column].obstacle[side] = 1;
         }
     }
 }

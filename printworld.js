@@ -21,6 +21,12 @@ function printWorld() {
         if(row == youAreHere[1][0] && column == youAreHere[1][1])
             return "player num" + 1;
 
-        return "space num" + world[row][column].terrain;
+        var strClass = "space num" + world[row][column].terrain;
+
+        if(world[row][column].obstacle.top) {
+            strClass += " obstacle-top";
+        }
+
+        return strClass;
     }
 }
