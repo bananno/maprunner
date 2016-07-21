@@ -1,27 +1,30 @@
 
 function printWorld() {
-    var worldTable = "<table id='worldGrid'>" + world.map(row_mapper).join("") + "</table>";
+    for(var i=0; i<numPlayers; i++) {
 
-    worldBox[1].innerHTML = worldTable;
-    worldBox[2].innerHTML = worldTable;
+        var worldTable = "<table id='worldGrid'>" +
+            world.map(row_mapper).join("") +
+            "</table>";
 
-    function row_mapper(array, row) {
-        return "<tr>" + array.map(tile_mapper).join("") + "</tr>";
+        worldBox[i].innerHTML = worldTable;
+    }
+}
 
-        function tile_mapper(tile, column) {
+function row_mapper(array, row) {
+    return "<tr>" + array.map(tile_mapper).join("") + "</tr>";
 
-            return "<td class='world " + tile_class(row, column) + "'></td>";
-        }
+    function tile_mapper(tile, column) {
+
+        return "<td class='world " + tile_class(row, column) + "'></td>";
+    }
+}
+
+function tile_class(row, column) {
+
+    for(var i=0; i<numPlayers; i++) {
+        if(row == youAreHere[i][0] && column == youAreHere[i][1])
+            return "player num" + i;
     }
 
-    function tile_class(row, column) {
-
-        if(row == youAreHere[0][0] && column == youAreHere[0][1])
-            return "player num" + 0;
-
-        if(row == youAreHere[1][0] && column == youAreHere[1][1])
-            return "player num" + 1;
-
-        return "space num" + world[row][column];
-    }
+    return "space num" + world[row][column];
 }
