@@ -11,7 +11,8 @@ window.onload = function() {
 
     youAreHere = [[2, 2], [4, 4]];
 
-    worldBox = document.getElementById("worldBox");
+    worldBox = [];
+    worldBox[0] = document.getElementById("worldBox");
 
     document.onkeydown = useKeyboard;
 
@@ -48,8 +49,19 @@ function addWall(rowStart, columnStart, rowSize, columnSize) {
 
 function welcome() {
     var welcomePage = "<p style='padding-top:200px; text-align:center;'>" +
-        "<input type='button' value='Begin Game' onclick=printWorld()>" +
+        "<input type='button' value='Begin Game' onclick=beginGame()>" +
         "</p>";
 
-    worldBox.innerHTML = welcomePage;
+    worldBox[0].innerHTML = welcomePage;
+}
+
+function beginGame() {
+    var gameFrame = "<table><td id='worldBox1'><td id='worldBox2'></table>";
+
+    worldBox[0].innerHTML = gameFrame;
+
+    worldBox[1] = document.getElementById("worldBox1");
+    worldBox[2] = document.getElementById("worldBox2");
+
+    printWorld();
 }
