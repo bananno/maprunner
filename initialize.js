@@ -33,7 +33,7 @@ window.onload = function() {
 
     createWorld();
 
-    addWall(10, 10, 1, 80);
+    designMaze();
 
     // begin
 
@@ -48,14 +48,6 @@ function createWorld(){
 
         for(var column = 0; column < worldColumns; column++)   {
             world[row][column] = 0;
-        }
-    }
-}
-
-function addWall(rowStart, columnStart, rowSize, columnSize) {
-   for(var row = rowStart; row < (rowStart + rowSize); row++) {
-        for(var column = columnStart; column < (columnStart + columnSize); column++) {
-            world[row][column] = 1;
         }
     }
 }
