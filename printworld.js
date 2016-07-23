@@ -5,12 +5,34 @@ function printWorld() {
 
     for(var i=0; i<numPlayers; i++) {
 
-        rowStart = 0;
-        rowEnd = worldRows;
-        columnStart = 0;
-        columnEnd = worldColumns;
 
-        worldTable = "<table id='worldGrid'>";
+        rowStart = youAreHere[i][0] - mapRadius;
+        rowEnd = youAreHere[i][0] + mapRadius + 1;
+
+        if(rowStart < 0) {
+            rowStart = 0;
+            rowEnd = (mapRadius * 2) + 1;
+        }
+
+        if(rowEnd > worldRows) {
+            rowStart = worldRows - (mapRadius * 2) - 1;
+            rowEnd = worldRows;
+        }
+
+        columnStart = youAreHere[i][1] - mapRadius;
+        columnEnd = youAreHere[i][1] + mapRadius + 1;
+
+        if(columnStart < 0) {
+            columnStart = 0;
+            columnEnd = (mapRadius * 2) + 1;
+        }
+
+        if(columnEnd > worldColumns) {
+            columnStart = worldColumns - (mapRadius * 2) - 1;
+            columnEnd = worldColumns;
+        }
+
+        worldTable = "<table id='worldGrid'>"; 
 
         for(var thisRow = rowStart; thisRow < rowEnd; thisRow++) {
 
