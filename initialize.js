@@ -6,6 +6,7 @@ window.onload = function() {
     worldRows = 80;
     worldColumns = 150;
     jumpSize = 1;
+    mapRadius = 5;
 
     numPlayers = 2;
 
