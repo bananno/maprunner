@@ -1,21 +1,32 @@
 
 function printWorld() {
+
+    var worldTable, rowStart, rowEnd, columnStart, columnEnd;
+
     for(var i=0; i<numPlayers; i++) {
 
-        var worldTable = "<table id='worldGrid'>" +
-            world.map(row_mapper).join("") +
-            "</table>";
+        rowStart = 0;
+        rowEnd = worldRows;
+        columnStart = 0;
+        columnEnd = worldColumns;
+
+        worldTable = "<table id='worldGrid'>";
+
+        for(var thisRow = rowStart; thisRow < rowEnd; thisRow++) {
+
+            worldTable += "<tr>";
+
+            for(var thisColumn = columnStart; thisColumn < columnEnd; thisColumn++) {
+
+                worldTable += "<td class='world " + tile_class(thisRow, thisColumn) + "'></td>"
+            }
+
+            worldTable += "</tr>";
+        }
+
+        worldTable += "</table>";
 
         worldBox[i].innerHTML = worldTable;
-    }
-}
-
-function row_mapper(array, row) {
-    return "<tr>" + array.map(tile_mapper).join("") + "</tr>";
-
-    function tile_mapper(tile, column) {
-
-        return "<td class='world " + tile_class(row, column) + "'></td>";
     }
 }
 
