@@ -33,7 +33,9 @@ function printWorld() {
 
             for(var thisCol = colStart; thisCol < (colStart + mapDiameter); thisCol++) {
 
-                worldTable += "<td class='world " + tile_class(thisRow, thisCol) + "'></td>"
+                worldTable += "<td class='world " + tile_class(thisRow, thisCol) + "'>" +
+                tile_content(thisRow, thisCol) +
+                "</td>"
             }
 
             worldTable += "</tr>";
@@ -47,10 +49,15 @@ function printWorld() {
 
 function tile_class(row, column) {
 
+    return "num" + world[row][column];
+}
+
+function tile_content(row, column) {
+
     for(var i=0; i<numPlayers; i++) {
         if(row == youAreHere[i][0] && column == youAreHere[i][1])
-            return "player num" + i;
+            return "<img class='player num" + i + "'>";
     }
 
-    return "space num" + world[row][column];
+    return "";
 }

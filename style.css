@@ -8,28 +8,31 @@ table {
 }
 
 .world {
-    height:4px;
-    width:4px;
-    border:2px solid transparent;
+    height: 20px;
+    width: 20px;
+    border: 2px solid transparent;
     text-align: center;
 }
 
-.world.player {
-    border-color:black;
+.world.num0 {
+    background-color: green;
+    background-image: url(https://s-media-cache-ak0.pinimg.com/236x/38/e2/de/38e2de978ccf9de492fb7cfd65d7ccbb.jpg);
 }
 
-.world.player.num0 {
-    background-color: red;
+.world.num1 {
+    border-color: black;
+    background-color: #993300;
 }
 
-.world.player.num1 {
-    background-color: yellow;
+.player {
+    height: 12px;
 }
 
-.world.space.num0 {
-    background-color:green;
+.player.num0 {
+    content: url(http://i.imgur.com/zRERkjv.gif);
 }
 
-.world.space.num1 {
-    background-color:blue;
+.player.num1 {
+    content: url(http://orig08.deviantart.net/977f/f/2013/021/0/2/1clydeghost_by_camdencc-d5sab7r.gif);
 }
+
