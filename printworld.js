@@ -1,46 +1,39 @@
 
 function printWorld() {
 
-    var worldTable, rowStart, rowEnd, columnStart, columnEnd;
+    var worldTable, rowStart, rowEnd, colStart, columnEnd;
 
     for(var i=0; i<numPlayers; i++) {
 
-
         rowStart = youAreHere[i][0] - mapRadius;
-        rowEnd = youAreHere[i][0] + mapRadius + 1;
 
         if(rowStart < 0) {
             rowStart = 0;
-            rowEnd = (mapRadius * 2) + 1;
         }
 
-        if(rowEnd > worldRows) {
-            rowStart = worldRows - (mapRadius * 2) - 1;
-            rowEnd = worldRows;
+        if((rowStart + mapDiameter) > worldRows) {
+            rowStart = worldRows - mapDiameter;
         }
 
-        columnStart = youAreHere[i][1] - mapRadius;
-        columnEnd = youAreHere[i][1] + mapRadius + 1;
+        colStart = youAreHere[i][1] - mapRadius;
 
-        if(columnStart < 0) {
-            columnStart = 0;
-            columnEnd = (mapRadius * 2) + 1;
+        if(colStart < 0) {
+            colStart = 0;
         }
 
-        if(columnEnd > worldColumns) {
-            columnStart = worldColumns - (mapRadius * 2) - 1;
-            columnEnd = worldColumns;
+        if((colStart + mapDiameter) > worldColumns) {
+            colStart = worldColumns - mapDiameter;
         }
 
         worldTable = "<table id='worldGrid'>"; 
 
-        for(var thisRow = rowStart; thisRow < rowEnd; thisRow++) {
+        for(var thisRow = rowStart; thisRow < (rowStart + mapDiameter); thisRow++) {
 
             worldTable += "<tr>";
 
-            for(var thisColumn = columnStart; thisColumn < columnEnd; thisColumn++) {
+            for(var thisCol = colStart; thisCol < (colStart + mapDiameter); thisCol++) {
 
-                worldTable += "<td class='world " + tile_class(thisRow, thisColumn) + "'></td>"
+                worldTable += "<td class='world " + tile_class(thisRow, thisCol) + "'></td>"
             }
 
             worldTable += "</tr>";
