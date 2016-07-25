@@ -1,4 +1,6 @@
 
+var newPosition;
+
 function useKeyboard(keyPressed) {
     var keyPressed = (window.event ? window.event : keyPressed).keyCode;
 
@@ -35,7 +37,7 @@ function movePlayer(playerNumber, vertHort, direction) {
 
     direction *= jumpSize;
 
-    var newPosition = youAreHere[playerNumber].concat();
+    newPosition = youAreHere[playerNumber].concat();
 
     newPosition[vertHort] += direction;
 
