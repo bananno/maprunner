@@ -41,12 +41,13 @@ function movePlayer(playerNumber, vertHort, direction) {
 
     newPosition[vertHort] += direction;
 
-    if(isLegal(newPosition[0], newPosition[1])) {
-
-        youAreHere[playerNumber][vertHort] += direction;
-
-        printWorld();
+    if(!isLegal(newPosition[0], newPosition[1])) {
+        return;
     }
+
+    youAreHere[playerNumber] = newPosition.concat();
+
+    printWorld();
 }
 
 function isLegal(newRow, newCol) {
