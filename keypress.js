@@ -41,6 +41,8 @@ function movePlayer(playerNumber, vertHort, direction) {
 
     newPosition[vertHort] += direction;
 
+    wrapWorld(newPosition[0], newPosition[1]);
+
     if(!isLegal(newPosition[0], newPosition[1])) {
         return;
     }
@@ -50,21 +52,30 @@ function movePlayer(playerNumber, vertHort, direction) {
     printWorld();
 }
 
+function wrapWorld(newRow, newCol) {
+
+    // if the new space is off the board, loop around and check that space instead
+
+    if(newRow < 0) {
+        newRow = worldRows - 1;
+    }
+
+    if(newRow >= worldRows) {
+        newRow = 0;
+    }
+
+    if(newCol < 0) {
+        newCol = worldColumns - 1;
+    }
+
+    if(newCol >= worldColumns) {
+        newCol = 0;
+    }
+
+    newPosition = [newRow, newCol];
+}
+
 function isLegal(newRow, newCol) {
-
-    // make sure the new space is not off the board
-
-    if(newRow < 0 || newCol < 0) {
-        return false;
-    }
-
-    if(newRow >= world.length) {
-        return false;
-    }
-
-    if(newCol >= world[newRow].length) {
-        return false;
-    }
 
     // make sure the new space is not occupied by another player
 
