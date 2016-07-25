@@ -47,19 +47,19 @@ function movePlayer(playerNumber, vertHort, direction) {
     }
 }
 
-function isLegal(row, column) {
+function isLegal(newRow, newCol) {
 
     // make sure the new space is not off the board
 
-    if(row < 0 || column < 0) {
+    if(newRow < 0 || newCol < 0) {
         return false;
     }
 
-    if(row >= world.length) {
+    if(newRow >= world.length) {
         return false;
     }
 
-    if(column >= world[row].length) {
+    if(newCol >= world[newRow].length) {
         return false;
     }
 
@@ -67,14 +67,14 @@ function isLegal(row, column) {
 
     for(var i=0; i<youAreHere.length; i++) {
 
-        if(youAreHere[i][0] == row && youAreHere[i][1] == column) {
+        if(youAreHere[i][0] == newRow && youAreHere[i][1] == newCol) {
             return false;
         }
     }
 
     // make sure the new space is not an "obstacle"
 
-    if(world[row][column] == 1) {
+    if(world[newRow][newCol] == 1) {
         return false;
     }
 
