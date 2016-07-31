@@ -2,42 +2,46 @@
 window.onload = function() {
 
     // variables/preferences
+    worldRows    = 19;
+    worldColumns = 19;
+    jumpSize     = 1;
+    mapRadius    = 7;
+    numPlayers   = 2;
+    mapDiameter  = (mapRadius * 2); // do not change
 
-    worldRows = 80;
-    worldColumns = 150;
-    jumpSize = 1;
+    youAreHere   = [];
+    worldBox     = [];
 
-    mapRadius = 5;
-    mapDiameter = (mapRadius * 2) + 1; // do not change
-
-    numPlayers = 2;
+    if(mapRadius >= (worldRows / 2)){
+        mapRadius = Math.floor(worldRows / 2);
+    }
+    
+    if(worldRows % 2 != 0)  {
+        mapDiameter += 1;
+    }
 
     // initialize
-
-    youAreHere = [];
 
     for(var i=0; i<numPlayers; i++) {
         youAreHere[i] = [0, 0];
     }
 
-    youAreHere[0] = [2, 2];
-    youAreHere[1] = [4, 4];
+    youAreHere[0] = [8, 9];
+    youAreHere[1] = [8, 10];
 
     mainBox = document.getElementById("mainBox");
-
-    worldBox = [];
 
     document.onkeydown = useKeyboard;
 
     // create the board and add obstacles/features
 
     createWorld();
-
     designMaze();
 
     // begin
 
-    welcome();
+    // welcome();
+    beginGame();
 };
 
 function createWorld(){
@@ -54,8 +58,8 @@ function createWorld(){
 
 function welcome() {
     var welcomePage = "<p style='padding-top:200px; text-align:center;'>" +
-        "<input type='button' value='Begin Game' onclick=beginGame()>" +
-        "</p>";
+    "<input type='button' value='Begin Game' onclick=beginGame()>" +
+    "</p>";
 
     mainBox.innerHTML = welcomePage;
 }

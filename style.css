@@ -8,9 +8,9 @@ table {
 }
 
 .world {
-    height:4px;
-    width:4px;
-    border:2px solid transparent;
+    height:40px;
+    width:40px;
+    border:2px solid /*transparent*/;
     text-align: center;
 }
 
